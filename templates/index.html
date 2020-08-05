@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block dynamic %}
+	<div>
+		<p>Run <code>train.py</code> to train the model first before attempting to classify the file type.</p>
+		<p>Classifies a PE based on user enabled classes on dynamic information derived from it's execution in a cuckoo sandbox.</p>
+	</div>
+	
+	<br>
+	<br>
+	
+	<form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+		<div class="inputBox w100">
+			<label for="pe">Trace file</label>
+			<input type="file" name="trace">
+			<label for="model">Model (.mdl)</label>
+			<input type="file" name="model">
+			<input type="submit" value="Classify!">
+		</div>
+	</form>
+{% endblock %}			
